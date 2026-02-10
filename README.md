@@ -1,137 +1,137 @@
-# Vue and Laravel Web App Project
+# Vue un Laravel tīmekļa lietotne projekts
 
-This is a school project that creates a website using Vue (for the front-end) and Laravel (for the back-end). It's a full-stack application, meaning it has both the user interface and the server-side logic.
+Šis ir skolas projekts, kas izveido vietni, izmantojot Vue (priekšgala) un Laravel (aizmugursistēmai). Tas ir pilna steka lietojums, kas nozīmē, ka tam ir gan lietotāja saskarne, gan servera puses loģika.
 
-## What This Project Does
+## Ko šis projekts dara
 
-- **Front-end**: A nice-looking website built with Vue 3 and Vuetify (a design library)
-- **Back-end**: A server built with Laravel that handles data and requests
-- **Database**: Uses SQLite to store information (easy to set up)
-- **Features**: Responsive design that works on phones and computers, and connects front-end to back-end
+- **Priekšgals**: Skaista vietne, kas izveidota ar Vue 3 un Vuetify (dizaina bibliotēka)
+- **Aizmugursistēma**: Serveris, kas izveidots ar Laravel, kas apstrādā datus un pieprasījumus
+- **Datubāze**: Izmanto SQLite, lai saglabātu informāciju (viegli iestatīt)
+- **Funkcijas**: Atbildīgs dizains, kas darbojas telefonos un datoros, un savieno priekšgalu ar aizmugursistēmu
 
-## Technologies Used
+## Izmantotās tehnoloģijas
 
-- **Vue 3**: JavaScript framework for building user interfaces
-- **Vuetify**: Material Design components for Vue
-- **Laravel**: PHP framework for web applications
-- **SQLite**: Simple database that doesn't need a server
-- **Vite**: Tool that helps build and run the project quickly
+- **Vue 3**: JavaScript ietvars lietotāja saskarņu izveidei
+- **Vuetify**: Material Design komponenti Vue
+- **Laravel**: PHP ietvars tīmekļa lietojumiem
+- **SQLite**: Vienkārša datubāze, kas neprasa serveri
+- **Vite**: Rīks, kas palīdz ātri veidot un palaist projektu
 
-## What You Need to Install First
+## Kas jāinstalē vispirms
 
-Before you can run this project, you need to install these programs:
+Pirms varat palaist šo projektu, jums jāinstalē šīs programmas:
 
-1. **Node.js** (version 20.19.0 or newer) - Download from https://nodejs.org/
-2. **PHP** (version 8.2 or newer) - Download from https://www.php.net/
-3. **Composer** - Download from https://getcomposer.org/
-4. **Git** - Download from https://git-scm.com/
+1. **Node.js** (versija 20.19.0 vai jaunāka) - Lejupielādējiet no https://nodejs.org/
+2. **PHP** (versija 8.2 vai jaunāka) - Lejupielādējiet no https://www.php.net/
+3. **Composer** - Lejupielādējiet no https://getcomposer.org/
+4. **Git** - Lejupielādējiet no https://git-scm.com/
 
-## How to Get Started
+## Kā sākt
 
-### Step 1: Download the Project
+### 1. solis: Lejupielādējiet projektu
 
-If you have the project files, skip to Step 2. Otherwise:
+Ja jums ir projekta faili, pārejiet uz 2. soli. Pretējā gadījumā:
 
 ```bash
 git clone <your-project-url>
 cd "Projekts-main - Copy"
 ```
 
-### Step 2: Set Up the Front-end (Vue Part)
+### 2. solis: Iestatiet priekšgalu (Vue daļu)
 
-1. Open a command prompt or terminal
-2. Go to the frontend folder:
+1. Atveriet komandu uzvedni vai termināli
+2. Dodieties uz priekšgala mapi:
    ```bash
    cd Frontend/vue-project
    ```
-3. Install the needed packages:
+3. Instalējiet nepieciešamās pakotnes:
    ```bash
    npm install
    ```
-4. Start the development server:
+4. Sāciet izstrādes serveri:
    ```bash
    npm run dev
    ```
 
-The website will open at http://localhost:5173
+Vietne tiks atvērta vietnē http://localhost:5173
 
-### Step 3: Set Up the Back-end (Laravel Part)
+### 3. solis: Iestatiet aizmugursistēmu (Laravel daļu)
 
-1. Open a new command prompt or terminal (keep the first one running)
-2. Go to the backend folder:
+1. Atveriet jaunu komandu uzvedni vai termināli (saglabājiet pirmo darbojošos)
+2. Dodieties uz aizmugursistēmas mapi:
    ```bash
    cd Backend/example-app
    ```
-3. Install PHP packages:
+3. Instalējiet PHP pakotnes:
    ```bash
    composer install
    ```
-4. Copy the environment file:
+4. Kopējiet vides failu:
    ```bash
    cp .env.example .env
    ```
-5. Generate an application key:
+5. Ģenerējiet lietojumprogrammas atslēgu:
    ```bash
    php artisan key:generate
    ```
-6. Set up the database:
+6. Iestatiet datubāzi:
    ```bash
    php artisan migrate
    ```
-7. Start the server:
+7. Sāciet serveri:
    ```bash
    php artisan serve
    ```
 
-The API will be available at http://127.0.0.1:8000
+API būs pieejams vietnē http://127.0.0.1:8000
 
-## Project Folders
+## Projekta mapes
 
 ```
 Projekts-main - Copy/
 ├── Frontend/
-│   └── vue-project/          # Vue website files
+│   └── vue-project/          # Vue vietnes faili
 │       ├── src/
-│       │   ├── components/   # Reusable parts of the website
-│       │   ├── assets/       # Images and styles
-│       │   └── pages/        # Different pages of the site
-│       ├── public/           # Files that don't change
-│       └── package.json      # List of front-end tools
+│       │   ├── components/   # Atkārtoti lietojamās vietnes daļas
+│       │   ├── assets/       # Attēli un stili
+│       │   └── pages/        # Dažādas vietnes lapas
+│       ├── public/           # Faili, kas nemainās
+│       └── package.json      # Priekšgala rīku saraksts
 ├── Backend/
-│   └── example-app/          # Laravel server files
-│       ├── app/              # Main application code
-│       ├── config/           # Settings files
-│       ├── database/         # Database setup files
-│       ├── public/           # Public web files
-│       ├── resources/        # Templates and assets
-│       ├── routes/           # URL definitions
-│       └── composer.json     # List of back-end tools
-└── README.md                 # This file
+│   └── example-app/          # Laravel servera faili
+│       ├── app/              # Galvenais lietojumprogrammas kods
+│       ├── config/           # Iestatījumu faili
+│       ├── database/         # Datubāzes iestatījumu faili
+│       ├── public/           # Publiskie tīmekļa faili
+│       ├── resources/        # Šabloni un aktīvi
+│       ├── routes/           # URL definīcijas
+│       └── composer.json     # Aizmugursistēmas rīku saraksts
+└── README.md                 # Šis fails
 ```
 
-## API Information
+## API informācija
 
-The back-end provides these endpoints:
-- `GET /api/home` - Gets data for the home page
+Aizmugursistēma nodrošina šos galapunktus:
+- `GET /api/home` - Iegūst datus mājas lapai
 
-## How to Run the Project
+## Kā palaist projektu
 
-1. Make sure both servers are running (from Steps 2 and 3 above)
-2. Open your web browser
-3. Go to http://localhost:5173
-4. The website should load and connect to the back-end automatically
+1. Pārliecinieties, ka abi serveri darbojas (no 2. un 3. soļa iepriekš)
+2. Atveriet tīmekļa pārlūku
+3. Dodieties uz http://localhost:5173
+4. Vietne jāielādējas un automātiski jāsavienojas ar aizmugursistēmu
 
-## Building for Final Version
+## Veidošana gala versijai
 
-When you're done developing:
+Kad esat pabeidzis izstrādi:
 
-**For the front-end:**
+**Priekšgalam:**
 ```bash
 cd Frontend/vue-project
 npm run build
 ```
 
-**For the back-end:**
+**Aizmugursistēmai:**
 ```bash
 cd Backend/example-app
 php artisan config:cache
@@ -139,41 +139,41 @@ php artisan route:cache
 php artisan view:cache
 ```
 
-## Common Problems and Solutions
+## Biežākās problēmas un risinājumi
 
-### If npm install doesn't work:
-- Make sure Node.js is installed correctly
-- Try deleting the `node_modules` folder and running `npm install` again
+### Ja npm install nedarbojas:
+- Pārliecinieties, ka Node.js ir pareizi instalēts
+- Mēģiniet dzēst `node_modules` mapi un palaist `npm install` vēlreiz
 
-### If composer install doesn't work:
-- Make sure PHP is installed and in your PATH
-- Check that Composer is installed
+### Ja composer install nedarbojas:
+- Pārliecinieties, ka PHP ir instalēts un atrodas jūsu PATH
+- Pārbaudiet, vai Composer ir instalēts
 
-### If the website doesn't load:
-- Check that both servers are running
-- Make sure the ports (5173 and 8000) are not being used by other programs
+### Ja vietne neielādējas:
+- Pārbaudiet, ka abi serveri darbojas
+- Pārliecinieties, ka porti (5173 un 8000) netiek izmantoti citām programmām
 
-### If database errors occur:
-- Run `php artisan migrate` again
-- Check that the `.env` file has the correct database settings
+### Ja rodas datubāzes kļūdas:
+- Palaidiet `php artisan migrate` vēlreiz
+- Pārbaudiet, vai `.env` failā ir pareizi datubāzes iestatījumi
 
-### PowerShell Issues (Windows):
-If PowerShell says "execution of scripts is disabled":
+### PowerShell problēmas (Windows):
+Ja PowerShell saka "execution of scripts is disabled":
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 ```
 
-## More Help
+## Vairāk palīdzības
 
-Check these files for additional information:
-- **[START_HERE.md](./START_HERE.md)** - Basic getting started guide
-- **[SETUP.md](./SETUP.md)** - Detailed setup steps
-- **[QUICK_REFERENCE.md](./QUICK_REFERENCE.md)** - Quick commands reference
+Pārbaudiet šos failus papildinformācijai:
+- **[START_HERE.md](./START_HERE.md)** - Pamata sākuma ceļvedis
+- **[SETUP.md](./SETUP.md)** - Detalizēti iestatīšanas soļi
+- **[QUICK_REFERENCE.md](./QUICK_REFERENCE.md)** - Ātro komandu atsauce
 
-## About This Project
+## Par šo projektu
 
-This project was created as part of a school assignment to learn about full-stack web development using modern technologies. It demonstrates how to build a complete web application with separate front-end and back-end components that work together.
+Šis projekts tika izveidots kā daļa no skolas uzdevuma, lai mācītos par pilna steka tīmekļa izstrādi, izmantojot modernas tehnoloģijas. Tas demonstrē, kā izveidot pilnīgu tīmekļa lietojumu ar atsevišķām priekšgala un aizmugursistēmas komponentēm, kas darbojas kopā.
 
-## License
+## Licence
 
-This project uses the MIT License.
+Šis projekts izmanto MIT licenci.

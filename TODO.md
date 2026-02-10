@@ -1,0 +1,4 @@
+- [ ] Translate and edit README.md to Latvian
+- [ ] Add changes to Git
+- [ ] Commit changes with message "Update README to Latvian"
+- [ ] Push changes to GitHub
