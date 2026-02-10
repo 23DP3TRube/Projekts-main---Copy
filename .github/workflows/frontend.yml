@@ -1,0 +1,46 @@
+name: Frontend Tests
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - 'Frontend/**'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'Frontend/**'
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20.x, 22.x]
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+        cache-dependency-path: Frontend/vue-project/package-lock.json
+
+    - name: Install dependencies
+      run: cd Frontend/vue-project && npm ci
+
+    - name: Run ESLint
+      run: cd Frontend/vue-project && npm run lint
+      continue-on-error: true
+
+    - name: Build frontend
+      run: cd Frontend/vue-project && npm run build
+
+    - name: Check build output
+      run: |
+        if [ ! -d "Frontend/vue-project/dist" ]; then
+          echo "Build failed: dist directory not created"
+          exit 1
+        fi

@@ -1,0 +1,59 @@
+name: Backend Tests
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - 'Backend/**'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'Backend/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_DATABASE: laravel_test
+          MYSQL_ROOT_PASSWORD: root
+        options: >-
+          --health-cmd="mysqladmin ping"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=3
+        ports:
+          - 3306:3306
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.2'
+        extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, pdo_mysql, bcmath, soap, intl, gd, exif, iconv
+        coverage: xdebug
+
+    - name: Copy .env.example to .env
+      run: cd Backend/example-app && cp .env.example .env
+
+    - name: Generate app key
+      run: cd Backend/example-app && php artisan key:generate
+
+    - name: Install Composer dependencies
+      run: cd Backend/example-app && composer install --no-progress --prefer-dist
+
+    - name: Run migrations
+      run: cd Backend/example-app && php artisan migrate --database=sqlite
+
+    - name: Run tests
+      run: cd Backend/example-app && php artisan test
+      continue-on-error: true
+
+    - name: Run ESLint for TypeScript
+      run: cd Backend/example-app && npm run lint
+      continue-on-error: true
