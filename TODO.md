@@ -1,4 +1,5 @@
-- [ ] Translate and edit README.md to Latvian
-- [ ] Add changes to Git
-- [ ] Commit changes with message "Update README to Latvian"
-- [ ] Push changes to GitHub
+- [x] Translate and edit README.md to Latvian
+- [x] Add changes to Git
+- [x] Commit changes with message "Update README to Latvian"
+- [x] Push changes to GitHub
+- [x] Edit App.vue to use HomePage component
